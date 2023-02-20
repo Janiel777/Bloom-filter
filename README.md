@@ -1,6 +1,3 @@
-3,898 / 5,000
-Resultados de traducción
-Traducción
 ## Bloom Filter
 This project is an implementation of a Bloom filter in Python. A Bloom filter is a probabilistic data structure used to check if an element belongs to a set. The Bloom filter uses various hash functions to map elements to a set of positions in a bit array. Then, to check if an element belongs to the array, the same hash functions are applied to that element and it is checked if all the corresponding bits in the bit array are on. If all bits are on, the element probably belongs to the set; otherwise, it can be said with certainty that the element is not in the set. It is said that "it is probable" that it is in the set, for that reason that collisions can occur in which two elements produce the same positions in the bit array.
 
