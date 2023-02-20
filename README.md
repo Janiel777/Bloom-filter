@@ -1,29 +1,47 @@
+3,898 / 5,000
+Resultados de traducción
+Traducción
 ## Bloom Filter
-Este proyecto es una implementación de un filtro de Bloom en Python. Un filtro de Bloom es una estructura de datos probabilística utilizada para verificar si un elemento pertenece a un conjunto. En lugar de almacenar todos los elementos en el conjunto, el filtro de Bloom utiliza varias funciones hash para mapear los elementos a un conjunto de posiciones en un bit array. Luego, para verificar si un elemento pertenece al conjunto, se aplican las mismas funciones hash a ese elemento y se comprueba si todos los bits correspondientes en el bit array están encendidos. Si todos los bits están encendidos, es probable que el elemento pertenezca al conjunto; de lo contrario, se puede decir con certeza que el elemento no está en el conjunto. Se dice que "es probale" que este en el conjunto por eso de que pueden ocurrir colisiones en el que dos elementos produscan las mismas posiciones en el bit array.
+This project is an implementation of a Bloom filter in Python. A Bloom filter is a probabilistic data structure used to check if an element belongs to a set. The Bloom filter uses various hash functions to map elements to a set of positions in a bit array. Then, to check if an element belongs to the array, the same hash functions are applied to that element and it is checked if all the corresponding bits in the bit array are on. If all bits are on, the element probably belongs to the set; otherwise, it can be said with certainty that the element is not in the set. It is said that "it is probable" that it is in the set, for that reason that collisions can occur in which two elements produce the same positions in the bit array.
 
-Este proyecto implementa un filtro de Bloom que utiliza múltiples funciones hash, lo que mejora su precisión en la detección de elementos en el conjunto y reduce la probabilidad de falsos positivos. El número de funciones hash utilizadas depende del tamaño del conjunto y la tasa de error aceptable.
+This project implements a Bloom filter that uses multiple hash functions, which improves its accuracy in detecting elements in the array and reduces the probability of false positives. The number of hash functions used depends on the size of the set and the acceptable error rate.
 
-La tasa de error aceptable se utiliza para determinar el tamaño del bit array utilizado para el filtro de Bloom, y por lo tanto, el número de funciones hash necesarias. Cuando se crea una instancia de la clase BloomFilter, se especifica el tamaño esperado del conjunto y la tasa de error aceptable. El tamaño del bit array se calcula a partir de estos valores, y el número de funciones hash se calcula automáticamente en función del tamaño del bit array. La taza de error aceptable es la probabilidad con la que cocurran los falsos positivos.
+The acceptable error rate is used to determine the size of the bit array used for the Bloom filter, and therefore the number of hash functions needed. When you create an instance of the BloomFilter class, you specify the expected size of the array and the acceptable error rate. The size of the bit array is calculated from these values, and the number of hash functions is automatically calculated based on the size of the bit array. The acceptable error rate is the probability that false positives will occur.
 
-La clase BloomFilter utiliza una implementación personalizada de un bit array, representado como una cadena de bits almacenada en una variable de tipo str. Esta implementación permite un manejo eficiente de los bits individuales del bit array. La clase BitArray define métodos para establecer y obtener bits en una posición específica en la cadena de bits.
+The BloomFilter class uses a custom implementation of a bit array, represented as a string of bits stored in a variable of type str. This implementation allows efficient handling of the individual bits of the bit array. The BitArray class defines methods to set and get bits at a specific position in the bit string.
 
-### Uso
-Para utilizar este filtro de Bloom en tu propio proyecto, simplemente agrega el archivo bloom_filter.py a tu proyecto y crea una instancia de la clase BloomFilter. Luego, puedes agregar elementos al filtro utilizando el método add y verificar si un elemento está presente utilizando el método contains.
+### Use
+To use this bloom filter in your own project, simply add the bloom_filter.py file to your project and create an instance of the BloomFilter class. You can then add elements to the filter using the add method and check if an element is present using the contains method.
 
 ```python
 from bloom_filter import BloomFilter
 
 bf = BloomFilter(1000, 0.01)
-bf.add("ejemplo")
-bf.add("otro ejemplo")
+bf.add("example")
+bf.add("another example")
 
-if bf.contains("ejemplo"):
-      print("El elemento 'ejemplo' está en el filtro.")
+if bf.contains("example"):
+       print("The element 'example' is in the filter.")
 else:
-      print("El elemento 'ejemplo' no está en el filtro.")
+       print("The element 'example' is not in the filter.")
 ```
 
-En este ejemplo, se crea un filtro de Bloom con una capacidad para 1000 elementos y una tasa de error aceptable del 1%. Se agregan dos elementos al filtro, y luego se verifica si el elemento "ejemplo" está presente. Si está presente, se imprime un mensaje indicando que el elemento se encuentra en el filtro; de lo contrario, se imprime un mensaje indicando que no está en el filtro.
+In this example, a Bloom filter is created with a capacity of 1000 elements and an acceptable error rate of 1%. Two elements are added to the filter, and then it is checked if the element "example" is present. If present, a message is printed indicating that the item is in the filter; otherwise, a message is printed indicating that it is not in the filter.
 
-### Contribuciones
-Si encuentras algún error o tienes alguna sugerencia de mejora, ¡no dudes en contribuir al proyecto!
+## Output
+The test that is done in the project code uses the files in1.csv and in2.csv as the inputs to add the elements to the bloom filter. All the elements in the in1.csv file are added to the bloom filter and the elements in the in2.csv file are used to check whether or not they are in the bloom filter. The output of the code is the following:
+
+```
+weseGLCIEPTUusDlU@aol.com, Probably in the DB
+qYHiFYrGlwM@gmail.com,Not in the DB
+PLekUVqtWnRVWShep@hotmail.com, Probably in the DB
+BXgWIGaZRv@aol.com, Probably in the DB
+NathUxfEPTEj@upr.edu,Not in the DB
+hmCdguIbyk@aol.com, Probably in the DB
+iUdkOTYeDMzzwIrytHSh@upr.edu, Probably in the DB
+HZDJvGTwH@yahoo.com,Not in the DB
+McdmnpxEjob@hotmail.com,Not in the DB
+```
+
+### Contributions
+If you find any bugs or have suggestions for improvement, feel free to contribute to the project!
