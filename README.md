@@ -5,7 +5,7 @@ This project implements a Bloom filter that uses multiple hash functions, which 
 
 The acceptable error rate is used to determine the size of the bit array used for the Bloom filter, and therefore the number of hash functions needed. When you create an instance of the BloomFilter class, you specify the expected size of the array and the acceptable error rate. The size of the bit array is calculated from these values, and the number of hash functions is automatically calculated based on the size of the bit array. The acceptable error rate is the probability that false positives will occur.
 
-The BloomFilter class uses a custom implementation of a bit array, represented as a string of bits stored in a variable of type str. This implementation allows efficient handling of the individual bits of the bit array. The BitArray class defines methods to set and get bits at a specific position in the bit string.
+The BloomFilter class uses a custom implementation of a bit array, represented as a integer. This implementation allows efficient handling of the individual bits of the bit array. The BitArray class defines methods to set and get bits at a specific position in the bit integer.
 
 ### Use
 To use this bloom filter in your own project, simply add the bloom_filter.py file to your project and create an instance of the BloomFilter class. You can then add elements to the filter using the add method and check if an element is present using the contains method.
