@@ -8,20 +8,24 @@ import math
 
 class BitArray:
     def __init__(self, size):
-        self.size = size
-        self.array = 0
+        self._size = size
+        self._array = 0
 
     def getitem(self, index):
-        return (self.array & (1 << index)) != 0
+        if index < 0 or index >= self._size:
+            raise IndexError("Index out of range")
+        return (self._array & (1 << index)) != 0
 
     def setitem(self, index, value):
+        if index < 0 or index >= self._size:
+            raise IndexError("Index out of range")
         if value:
-            self.array |= (1 << index)
+            self._array |= (1 << index)
         else:
-            self.array &= ~(1 << index)
+            self._array &= ~(1 << index)
 
-    def size(self):
-        return self.size
+    def get_size(self):
+        return self._size
 
 class BloomFilter(object):
     def __init__(self, elements, prob):
